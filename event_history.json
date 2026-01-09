@@ -1,0 +1,2109 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L2YGLOJM5S:AWSCloudFormation",
+        "arn": "arn:aws:sts::886436962263:assumed-role/ConformancePack_CloudFormationAccess/AWSCloudFormation",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LVJKO6XUG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L2YGLOJM5S",
+            "arn": "arn:aws:iam::886436962263:role/ConformancePack_CloudFormationAccess",
+            "accountId": "886436962263",
+            "userName": "ConformancePack_CloudFormationAccess"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:29Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "invokedBy": "cloudformation.amazonaws.com"
+      },
+      "eventTime": "2025-12-04T12:03:29Z",
+      "eventSource": "lambda.amazonaws.com",
+      "eventName": "DeleteFunction20150331",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "cloudformation.amazonaws.com",
+      "userAgent": "cloudformation.amazonaws.com",
+      "requestParameters": {
+        "functionName": "CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+      },
+      "responseElements": null,
+      "requestID": "68dae087-f60f-4374-944a-0fd7e60debf1",
+      "eventID": "8a1cb7fd-138e-45aa-a9e2-c431d606423c",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:24Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-TagsRemediationDocument-WR8HKLWSaKVQ",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "970547336735",
+          "988444681199",
+          "954976285685",
+          "976193229864",
+          "935610067425",
+          "982534347997",
+          "962496666337",
+          "995751812523",
+          "912142373035",
+          "970547354166",
+          "985539772768",
+          "982081068127",
+          "985539763589",
+          "980921735402"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "4035becd-fce3-4843-81b2-c7c00e80c98c",
+      "eventID": "2f409d0a-5e32-487c-aae6-6a0ca86d1ab6",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:24Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-TagsRemediationDocument-WR8HKLWSaKVQ",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "711387121692",
+          "713881815639",
+          "774305574116",
+          "767828749690",
+          "762233745287",
+          "762603643412",
+          "796973512193",
+          "711387113272",
+          "825765383386",
+          "771826808190",
+          "825765391206",
+          "711387109786",
+          "796973518232",
+          "714377355835",
+          "724772082600",
+          "732262065609",
+          "801472137579",
+          "764988411222",
+          "765812221756",
+          "816069128355"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "8f9968a3-ef1a-4d47-bd2a-38cfb251fc84",
+      "eventID": "9e613f32-0535-4678-ad61-95e44c89cc62",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:24Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-TagsRemediationDocument-WR8HKLWSaKVQ",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "900278005284",
+          "904233109505",
+          "859762281688",
+          "842676015206",
+          "839071825379",
+          "869310686430",
+          "867344428625",
+          "904570587823",
+          "850191425448",
+          "843632604592",
+          "850995534424",
+          "867344436491",
+          "831926601640",
+          "897729111286",
+          "888762632971",
+          "888577022995",
+          "861276111046",
+          "877176937914",
+          "888577065142",
+          "954976291444"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "20b6c216-7ed8-460c-a7ad-f767eb3b0086",
+      "eventID": "ac8c2cb6-5561-4e05-b5f2-87fdad26d5c5",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:20Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "73234f94-d6e4-485e-b666-2ddd6c420f28",
+      "eventID": "67c11393-50be-4ef2-b5b9-25d54d6e7d9d",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:20Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "c330b591-0c2c-4bac-ac70-f83d5f12b979",
+      "eventID": "f2157048-8f27-4ae2-a67b-d4df1ac524cd",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:19Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-TagsRemediationDocument-WR8HKLWSaKVQ",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "448049788660",
+          "537124942586",
+          "529088286633",
+          "517798689069",
+          "467389992282",
+          "509685826727",
+          "518730249758",
+          "458755676371",
+          "463470950988",
+          "499648498289",
+          "481207241412",
+          "502141097771",
+          "475515413435",
+          "515966510180",
+          "528757791414",
+          "495599740165",
+          "486128667962",
+          "495599742316",
+          "467968340391",
+          "481980074895"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "6f1e53cf-45b7-4884-b863-1bfabfc12157",
+      "eventID": "186efb9c-50a9-4fcc-aebf-2512dffd35bb",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:19Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-TagsRemediationDocument-WR8HKLWSaKVQ",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "593793039564",
+          "663354325483",
+          "637867484447",
+          "584261447586",
+          "664418974652",
+          "682033471539",
+          "593793048595",
+          "697863031884",
+          "684354630606",
+          "584102815888",
+          "585768144936",
+          "585008053249",
+          "648637468459",
+          "677276091734",
+          "676206913131",
+          "605134436600",
+          "664418998745",
+          "593123425496",
+          "620144980092",
+          "615299752577"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "8491db6c-8e24-4c5f-b72c-a6c7023f4c6f",
+      "eventID": "692c1fd4-b4fc-425d-be6f-ad5d2ba08e81",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:19Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "4f650f53-e418-40da-ac77-4b578cf99be1",
+      "eventID": "7a3bc1f8-a675-4dc1-9f63-02d5815d4955",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:18Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-TagsRemediationDocument-WR8HKLWSaKVQ",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "384747604241",
+          "343218181928",
+          "412381768295",
+          "344837150589",
+          "414392949441",
+          "382828593864",
+          "448049785966",
+          "337909743459",
+          "343487555085",
+          "443370714528",
+          "345594579871",
+          "445567114084",
+          "343218213563",
+          "412381770444",
+          "415529767247",
+          "437474202126",
+          "442426888142",
+          "405894843300",
+          "438465164038",
+          "396608771737"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "324d78f5-9fc7-4f4c-b602-a9766422a293",
+      "eventID": "64c264fe-41d2-4c5b-a161-ff0a77b1e5d0",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:16Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "fd815f09-b5f9-4d14-9cd2-1816f5e8a5ec",
+      "eventID": "30ba0292-3f18-4817-9fc9-cfef2a342fd4",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:14Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-TagsRemediationDocument-WR8HKLWSaKVQ",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "329599647651",
+          "241533136420",
+          "296683127021",
+          "288761743924",
+          "309797288544",
+          "259401054581",
+          "329599657540",
+          "266735846670",
+          "314146322404",
+          "288761743948",
+          "323135480621",
+          "311141521726",
+          "231470900259",
+          "242201306552",
+          "252059602419",
+          "288761749193",
+          "277707095189",
+          "266735814394",
+          "265267290744",
+          "298334370146"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "5560403d-0e6e-4451-86ba-8c6f4c2e3523",
+      "eventID": "611fd806-788f-4eec-b7a6-73127970f8a1",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:14Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-EbsGp3Remediation-wjmPtKcar5lk",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "900278005284",
+          "904233109505",
+          "859762281688",
+          "842676015206",
+          "839071825379",
+          "869310686430",
+          "867344428625",
+          "904570587823",
+          "850191425448",
+          "843632604592",
+          "850995534424",
+          "867344436491",
+          "831926601640",
+          "897729111286",
+          "888762632971",
+          "888577022995",
+          "861276111046",
+          "877176937914",
+          "888577065142",
+          "954976291444"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "8ebe45b2-e09e-430f-83ec-6d9f1691e480",
+      "eventID": "7ea323b5-5445-49ea-98fb-1340257da61b",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:14Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "1c119886-38d0-4729-9d76-8e758338748f",
+      "eventID": "8201428f-21d5-4704-a847-05677c1b722d",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:14Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-EbsGp3Remediation-wjmPtKcar5lk",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "970547336735",
+          "988444681199",
+          "954976285685",
+          "976193229864",
+          "935610067425",
+          "982534347997",
+          "962496666337",
+          "995751812523",
+          "912142373035",
+          "970547354166",
+          "985539772768",
+          "982081068127",
+          "985539763589",
+          "980921735402"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "a87df008-b331-49f1-b16b-07fea01a63a7",
+      "eventID": "b629c980-c038-4d87-b51c-d43efe03b35d",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:14Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "a94571ec-f72e-4a65-8d4a-103a86af302b",
+      "eventID": "e890c865-415c-4fa1-affb-53e5b63dd393",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:13Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-EbsGp3Remediation-wjmPtKcar5lk",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "448049788660",
+          "537124942586",
+          "529088286633",
+          "517798689069",
+          "467389992282",
+          "509685826727",
+          "518730249758",
+          "458755676371",
+          "463470950988",
+          "499648498289",
+          "481207241412",
+          "502141097771",
+          "475515413435",
+          "515966510180",
+          "528757791414",
+          "495599740165",
+          "486128667962",
+          "495599742316",
+          "467968340391",
+          "481980074895"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "9f52f021-9afd-4ad2-9500-df70d67910d1",
+      "eventID": "62c119b6-64b1-45eb-8c19-4c6857ade3f7",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:13Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-EbsGp3Remediation-wjmPtKcar5lk",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "711387121692",
+          "713881815639",
+          "774305574116",
+          "767828749690",
+          "762233745287",
+          "762603643412",
+          "796973512193",
+          "711387113272",
+          "825765383386",
+          "771826808190",
+          "825765391206",
+          "711387109786",
+          "796973518232",
+          "714377355835",
+          "724772082600",
+          "732262065609",
+          "801472137579",
+          "764988411222",
+          "765812221756",
+          "816069128355"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "88b320c8-61ee-49d1-bf9b-cc9bab917510",
+      "eventID": "a5d9bf52-7365-4034-8210-0c41167b33fd",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:13Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-EbsGp3Remediation-wjmPtKcar5lk",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "593793039564",
+          "663354325483",
+          "637867484447",
+          "584261447586",
+          "664418974652",
+          "682033471539",
+          "593793048595",
+          "697863031884",
+          "684354630606",
+          "584102815888",
+          "585768144936",
+          "585008053249",
+          "648637468459",
+          "677276091734",
+          "676206913131",
+          "605134436600",
+          "664418998745",
+          "593123425496",
+          "620144980092",
+          "615299752577"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "3c33e46f-441a-4adc-98d6-7a3276005ac7",
+      "eventID": "d69b9d7b-d5b7-436c-81a0-9b84a12d05f1",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:11Z",
+      "eventSource": "logs.amazonaws.com",
+      "eventName": "CreateLogStream",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "awslambda-worker/1.0 rusoto/0.48.0 rust/1.90.0 linux",
+      "requestParameters": {
+        "logGroupName": "/aws/lambda/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "logStreamName": "2025/12/04/[$LATEST]77b53aca9c3c43eaa39daef0fdc85bc4"
+      },
+      "responseElements": null,
+      "requestID": "9ffdc4be-12de-4575-8f59-7b2e312c1b77",
+      "eventID": "2d9f17e1-ee14-41ac-ad31-270e503e7faa",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "apiVersion": "20140328",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "logs.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:11Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "7cb8aed9-d10d-48fe-a1db-5a2329d3fc13",
+      "eventID": "4b188904-8cef-4589-a0c7-e59012b91a91",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:11Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "d7316425-41e4-492c-8a34-984115582969",
+      "eventID": "c359ba5f-c891-4ad8-8434-03969f3ecf85",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:10Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "1b69b85c-4d67-482d-9f95-71f86b60085e",
+      "eventID": "1486267a-5059-4b27-9f41-f130be4d1da1",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:09Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-EbsGp3Remediation-wjmPtKcar5lk",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "329599647651",
+          "241533136420",
+          "296683127021",
+          "288761743924",
+          "309797288544",
+          "259401054581",
+          "329599657540",
+          "266735846670",
+          "314146322404",
+          "288761743948",
+          "323135480621",
+          "311141521726",
+          "231470900259",
+          "242201306552",
+          "252059602419",
+          "288761749193",
+          "277707095189",
+          "266735814394",
+          "265267290744",
+          "298334370146"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "3ba707a1-cdd0-4a8f-a820-33dbff6ee1cc",
+      "eventID": "06fd8dca-5857-4aed-b222-256363be5ddb",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:09Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "8e9d49d3-c71e-42f3-ba94-d864ddf6848d",
+      "eventID": "0feb4cd8-fc0b-47a4-9efd-709e5b6b62e0",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:09Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "c30cb866-a8e3-4371-b539-97a2cf2a2fe3",
+      "eventID": "1bd94580-becd-4b86-8f03-05444cb38319",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:09Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-EbsGp3Remediation-wjmPtKcar5lk",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "384747604241",
+          "343218181928",
+          "412381768295",
+          "344837150589",
+          "414392949441",
+          "382828593864",
+          "448049785966",
+          "337909743459",
+          "343487555085",
+          "443370714528",
+          "345594579871",
+          "445567114084",
+          "343218213563",
+          "412381770444",
+          "415529767247",
+          "437474202126",
+          "442426888142",
+          "405894843300",
+          "438465164038",
+          "396608771737"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "ada681fc-071b-4ef1-aa17-64a5154d7967",
+      "eventID": "6aef74cc-d6ab-4294-84de-60b89d22b83e",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:09Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "cd523abb-fc7d-42b3-928c-cc86964328bf",
+      "eventID": "9276396f-1497-4a40-a754-1eedf084763d",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:09Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "errorCode": "ThrottlingException",
+      "errorMessage": "Rate exceeded",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "5e4b9ff6-d8a9-4831-bb9f-c840a4f00beb",
+      "eventID": "99f3538d-39d6-464a-bd19-3d6cbce53466",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:09Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-EbsGp3Remediation-wjmPtKcar5lk",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "195275642256",
+          "124355655853",
+          "209479273192",
+          "143320676204",
+          "185685335224",
+          "205930614431",
+          "167305888200",
+          "183631301567",
+          "149536452878",
+          "180294222815",
+          "182399707265",
+          "145023116067",
+          "161845748920",
+          "183631328645",
+          "230082279852",
+          "202533544511",
+          "149536482038",
+          "195275667627",
+          "205930639565",
+          "216989132235"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "21e40392-7d35-491c-8a06-37c99c3e09c0",
+      "eventID": "a2021663-a56f-417d-8016-99ba2ac90358",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:09Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-TagsRemediationDocument-WR8HKLWSaKVQ",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "039612881238",
+          "084129280516",
+          "120569613427",
+          "124355645722",
+          "039612855997",
+          "054367266266",
+          "061430553096",
+          "004165097941",
+          "038462765553",
+          "050451375647",
+          "061051226504",
+          "004642588629",
+          "107737161507",
+          "122441749349",
+          "025523568662",
+          "116981778859",
+          "047719661196",
+          "034926093113",
+          "049618907165",
+          "122610498016"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "428e5051-c65b-4f14-b523-8913c1e732cc",
+      "eventID": "c1dec76c-3c19-4f81-9fcd-10c5d402f827",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:09Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/Z,b,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-TagsRemediationDocument-WR8HKLWSaKVQ",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "195275642256",
+          "124355655853",
+          "209479273192",
+          "143320676204",
+          "185685335224",
+          "205930614431",
+          "167305888200",
+          "183631301567",
+          "149536452878",
+          "180294222815",
+          "182399707265",
+          "145023116067",
+          "161845748920",
+          "183631328645",
+          "230082279852",
+          "202533544511",
+          "149536482038",
+          "195275667627",
+          "205930639565",
+          "216989132235"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "e524dbf5-2900-4ba7-be98-378b47bb852b",
+      "eventID": "dd8c3f6c-8f00-4359-ada2-8a9544d02aee",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7LTP4DNJTG",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:08Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ModifyDocumentPermission",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "54.154.60.56",
+      "userAgent": "Boto3/1.40.4 md/Botocore#1.40.4 ua/2.1 os/linux#5.10.245-269.978.amzn2.aarch64 md/arch#aarch64 lang/python#3.12.12 md/pyimpl#CPython exec-env/AWS_Lambda_python3.12 m/b,Z,D cfg/retry-mode#legacy Botocore/1.40.4",
+      "requestParameters": {
+        "name": "CostOptimizationConfPack-EbsGp3Remediation-wjmPtKcar5lk",
+        "permissionType": "Share",
+        "accountIdsToRemove": [
+          "039612881238",
+          "084129280516",
+          "120569613427",
+          "124355645722",
+          "039612855997",
+          "054367266266",
+          "061430553096",
+          "004165097941",
+          "038462765553",
+          "050451375647",
+          "061051226504",
+          "004642588629",
+          "107737161507",
+          "122441749349",
+          "025523568662",
+          "116981778859",
+          "047719661196",
+          "034926093113",
+          "049618907165",
+          "122610498016"
+        ]
+      },
+      "responseElements": null,
+      "requestID": "53a77f36-7679-4eda-bd46-2ba4e332f0ed",
+      "eventID": "62d3b027-8b18-42ed-a80d-2cbbf3f45f03",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "ssm.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L7QFWGPMLS:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "arn": "arn:aws:sts::886436962263:assumed-role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L3CQ5CJZX",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L7QFWGPMLS",
+            "arn": "arn:aws:iam::886436962263:role/CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl",
+            "accountId": "886436962263",
+            "userName": "CostOptimizationConfPack-ShareDocumentFunctionRole-TsFf4RIe5qPl"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "inScopeOf": {
+          "issuerType": "AWS::Lambda::Function",
+          "credentialsIssuedTo": "arn:aws:lambda:eu-west-1:886436962263:function:CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw"
+        }
+      },
+      "eventTime": "2025-12-04T12:03:07Z",
+      "eventSource": "logs.amazonaws.com",
+      "eventName": "CreateLogStream",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "34.241.221.100",
+      "userAgent": "awslambda-worker/1.0 rusoto/0.48.0 rust/1.90.0 linux",
+      "requestParameters": {
+        "logGroupName": "/aws/lambda/CostOptimizationConfPack-ShareDocumentFunction-3DiOjczoq7uw",
+        "logStreamName": "2025/12/04/[$LATEST]d9d34f76135c4c288ad1520c639b07a9"
+      },
+      "responseElements": null,
+      "requestID": "4ec178a6-593f-4f45-83fc-cc2dca605d18",
+      "eventID": "08d654ed-5db1-40f5-9977-3637a440b654",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "apiVersion": "20140328",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "logs.eu-west-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA44Y6CT7L2YGLOJM5S:AWSCloudFormation",
+        "arn": "arn:aws:sts::886436962263:assumed-role/ConformancePack_CloudFormationAccess/AWSCloudFormation",
+        "accountId": "886436962263",
+        "accessKeyId": "ASIA44Y6CT7L5MY3LUP3",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA44Y6CT7L2YGLOJM5S",
+            "arn": "arn:aws:iam::886436962263:role/ConformancePack_CloudFormationAccess",
+            "accountId": "886436962263",
+            "userName": "ConformancePack_CloudFormationAccess"
+          },
+          "attributes": {
+            "creationDate": "2025-12-04T12:03:04Z",
+            "mfaAuthenticated": "false"
+          }
+        },
+        "invokedBy": "cloudformation.amazonaws.com"
+      },
+      "eventTime": "2025-12-04T12:03:05Z",
+      "eventSource": "config.amazonaws.com",
+      "eventName": "DeleteOrganizationConformancePack",
+      "awsRegion": "eu-west-1",
+      "sourceIPAddress": "cloudformation.amazonaws.com",
+      "userAgent": "cloudformation.amazonaws.com",
+      "requestParameters": {
+        "organizationConformancePackName": "Cost-Optimization"
+      },
+      "responseElements": null,
+      "requestID": "4fd63ff3-cd6b-46eb-89be-47e74e7d8412",
+      "eventID": "91a876e1-bc39-43b3-a6b8-49759b2e5cf0",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "886436962263",
+      "eventCategory": "Management"
+    }
+  ]
+}

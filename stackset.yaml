@@ -1,0 +1,67 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Resources:
+  AutomationRole:
+    Type: AWS::IAM::Role
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W28
+            reason: Hardcoded name required for Conformance Pack.
+    Properties:
+      RoleName: !Sub CostOpt-Automation-${AWS::Region}
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ssm.amazonaws.com
+            Action: sts:AssumeRole
+      Policies: []
+
+  CustomConfigFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - !Sub arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - !Sub arn:${AWS::Partition}:iam::aws:policy/service-role/AWSConfigRulesExecutionRole
+      Policies: []
+
+  CustomConfigFunction:
+    Type: AWS::Lambda::Function
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3002 # Need to ignore cfn-lint illegal function check due to usage of !Rain::Embed
+      cfn_nag:
+        rules_to_suppress:
+          - id: W58
+            reason: Permissions provided through managed policy AWSLambdaBasicExecutionRole.
+          - id: W89
+            reason: VPC not required.
+          - id: W92
+            reason: Reserved Concurrency not required.
+    Properties:
+      FunctionName: CostOptimizationConformanceConfigRuleFunction
+      Runtime: python3.12
+      Handler: index.lambda_handler
+      Architectures:
+        - arm64
+      Role: !GetAtt CustomConfigFunctionRole.Arn
+      Code:
+        ZipFile: !Rain::Embed functions/custom_config_rule-pkg.py
+
+  CustomConfigFunctionPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      Principal: config.amazonaws.com
+      FunctionName: !GetAtt CustomConfigFunction.Arn
