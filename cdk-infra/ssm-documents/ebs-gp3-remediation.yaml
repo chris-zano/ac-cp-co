@@ -1,0 +1,26 @@
+schemaVersion: "0.3"
+description: "Remediation document to convert EBS gp2 volumes to gp3"
+
+assumeRole: "arn:{{ global:AWS_PARTITION }}:iam::{{ global:ACCOUNT_ID }}:role/CostOpt-Automation-{{ global:REGION }}"
+
+parameters:
+  volumeid:
+    type: String
+    description: "ID of the EBS volume to convert from gp2 to gp3"
+
+mainSteps:
+  - name: ModifyVolume
+    action: aws:executeAwsApi
+    description: "Modifies the EBS volume type from gp2 to gp3"
+    outputs:
+      - Name: Output
+        Selector: $
+        Type: StringMap
+    inputs:
+      Service: ec2
+      Api: ModifyVolume
+      VolumeId: "{{ volumeid }}"
+      VolumeType: gp3
+
+outputs:
+  - ModifyVolume.Output

@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`MemberAccountStack Matches snapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AutomationRoleC58D7324": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ssm.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Description": "Role for SSM Automation to remediate cost optimization issues",
+        "Policies": [
+          {
+            "PolicyDocument": {
+              "Statement": [
+                {
+                  "Action": "ec2:ModifyVolume",
+                  "Effect": "Allow",
+                  "Resource": "*",
+                },
+              ],
+              "Version": "2012-10-17",
+            },
+            "PolicyName": "RemediationPolicy",
+          },
+        ],
+        "RoleName": {
+          "Fn::Join": [
+            "",
+            [
+              "CostOpt-Automation-",
+              {
+                "Ref": "AWS::Region",
+              },
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "CustomConfigFunctionConfigPermission95034347": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "CustomConfigFunctionDE240346",
+            "Arn",
+          ],
+        },
+        "Principal": "config.amazonaws.com",
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "CustomConfigFunctionCustomRulePermissionXogMcOcBfKkfAgTC3zxpecyWNuSNTUwy6QrCZdRtCdw58BB1932": {
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "CustomConfigFunctionDE240346",
+            "Arn",
+          ],
+        },
+        "Principal": "config.amazonaws.com",
+        "SourceAccount": "123456789012",
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "CustomConfigFunctionDE240346": {
+      "DependsOn": [
+        "CustomConfigFunctionRole80E9182A",
+      ],
+      "Properties": {
+        "Architectures": [
+          "arm64",
+        ],
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-us-east-1",
+          "S3Key": "1a3c174f909d4e5b49873f546b0787f3c2876998f37feb5ec7d9622f332b69a6.zip",
+        },
+        "Description": "Evaluates cost optimization Config rules for EBS and S3",
+        "FunctionName": "CostOptimizationConformanceConfigRuleFunction",
+        "Handler": "index.lambda_handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "CustomConfigFunctionRole80E9182A",
+            "Arn",
+          ],
+        },
+        "Runtime": "python3.12",
+        "Timeout": 60,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "CustomConfigFunctionRole80E9182A": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSConfigRulesExecutionRole",
+              ],
+            ],
+          },
+        ],
+        "Policies": [
+          {
+            "PolicyDocument": {
+              "Statement": [
+                {
+                  "Action": "s3:GetLifecycleConfiguration",
+                  "Effect": "Allow",
+                  "Resource": "*",
+                },
+              ],
+              "Version": "2012-10-17",
+            },
+            "PolicyName": "S3LifecyclePolicy",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "EbsGp3Rule7358C22A": {
+      "DependsOn": [
+        "CustomConfigFunctionConfigPermission95034347",
+        "CustomConfigFunctionCustomRulePermissionXogMcOcBfKkfAgTC3zxpecyWNuSNTUwy6QrCZdRtCdw58BB1932",
+        "CustomConfigFunctionDE240346",
+      ],
+      "Properties": {
+        "ConfigRuleName": "CostOpt-Ebs-Gp3",
+        "Description": "Checks that EBS volumes use gp3 volume type instead of gp2",
+        "InputParameters": {
+          "applicableResourceType": "AWS::EC2::Volume",
+          "customFunctionPrefix": "ebs_gp3",
+          "desiredVolumeType": "gp3",
+        },
+        "MaximumExecutionFrequency": "Six_Hours",
+        "Scope": {
+          "ComplianceResourceTypes": [
+            "AWS::EC2::Volume",
+          ],
+        },
+        "Source": {
+          "Owner": "CUSTOM_LAMBDA",
+          "SourceDetails": [
+            {
+              "EventSource": "aws.config",
+              "MessageType": "ConfigurationItemChangeNotification",
+            },
+            {
+              "EventSource": "aws.config",
+              "MessageType": "OversizedConfigurationItemChangeNotification",
+            },
+            {
+              "EventSource": "aws.config",
+              "MaximumExecutionFrequency": "Six_Hours",
+              "MessageType": "ScheduledNotification",
+            },
+          ],
+          "SourceIdentifier": {
+            "Fn::GetAtt": [
+              "CustomConfigFunctionDE240346",
+              "Arn",
+            ],
+          },
+        },
+      },
+      "Type": "AWS::Config::ConfigRule",
+    },
+    "EbsUnattachedRule5949FCA3": {
+      "DependsOn": [
+        "CustomConfigFunctionConfigPermission95034347",
+        "CustomConfigFunctionCustomRulePermissionXogMcOcBfKkfAgTC3zxpecyWNuSNTUwy6QrCZdRtCdw58BB1932",
+        "CustomConfigFunctionDE240346",
+      ],
+      "Properties": {
+        "ConfigRuleName": "CostOpt-Ebs-Unattached",
+        "Description": "Checks that EBS volumes are attached to EC2 instances",
+        "InputParameters": {
+          "applicableResourceType": "AWS::EC2::Volume",
+          "customFunctionPrefix": "ebs_unattached",
+        },
+        "MaximumExecutionFrequency": "Six_Hours",
+        "Scope": {
+          "ComplianceResourceTypes": [
+            "AWS::EC2::Volume",
+          ],
+        },
+        "Source": {
+          "Owner": "CUSTOM_LAMBDA",
+          "SourceDetails": [
+            {
+              "EventSource": "aws.config",
+              "MessageType": "ConfigurationItemChangeNotification",
+            },
+            {
+              "EventSource": "aws.config",
+              "MessageType": "OversizedConfigurationItemChangeNotification",
+            },
+            {
+              "EventSource": "aws.config",
+              "MaximumExecutionFrequency": "Six_Hours",
+              "MessageType": "ScheduledNotification",
+            },
+          ],
+          "SourceIdentifier": {
+            "Fn::GetAtt": [
+              "CustomConfigFunctionDE240346",
+              "Arn",
+            ],
+          },
+        },
+      },
+      "Type": "AWS::Config::ConfigRule",
+    },
+    "S3LifecycleRule40C6FFE0": {
+      "DependsOn": [
+        "CustomConfigFunctionConfigPermission95034347",
+        "CustomConfigFunctionCustomRulePermissionXogMcOcBfKkfAgTC3zxpecyWNuSNTUwy6QrCZdRtCdw58BB1932",
+        "CustomConfigFunctionDE240346",
+      ],
+      "Properties": {
+        "ConfigRuleName": "CostOpt-S3-WithoutLifecycle",
+        "Description": "Checks that S3 buckets have lifecycle configuration policies",
+        "InputParameters": {
+          "applicableResourceType": "AWS::S3::Bucket",
+          "customFunctionPrefix": "s3_withoutlifecycle",
+        },
+        "MaximumExecutionFrequency": "Six_Hours",
+        "Scope": {
+          "ComplianceResourceTypes": [
+            "AWS::S3::Bucket",
+          ],
+        },
+        "Source": {
+          "Owner": "CUSTOM_LAMBDA",
+          "SourceDetails": [
+            {
+              "EventSource": "aws.config",
+              "MessageType": "ConfigurationItemChangeNotification",
+            },
+            {
+              "EventSource": "aws.config",
+              "MessageType": "OversizedConfigurationItemChangeNotification",
+            },
+            {
+              "EventSource": "aws.config",
+              "MaximumExecutionFrequency": "Six_Hours",
+              "MessageType": "ScheduledNotification",
+            },
+          ],
+          "SourceIdentifier": {
+            "Fn::GetAtt": [
+              "CustomConfigFunctionDE240346",
+              "Arn",
+            ],
+          },
+        },
+      },
+      "Type": "AWS::Config::ConfigRule",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

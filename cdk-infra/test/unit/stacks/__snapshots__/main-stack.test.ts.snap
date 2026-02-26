@@ -1,0 +1,650 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CostOptimizationMainStack Matches snapshot 1`] = `
+{
+  "Outputs": {
+    "ManagementAccountId": {
+      "Description": "AWS Organization Management Account ID",
+      "Value": {
+        "Fn::GetAtt": [
+          "OrgDetails67A18B48",
+          "MasterAccountId",
+        ],
+      },
+    },
+    "OrganizationRootId": {
+      "Description": "AWS Organization Root ID",
+      "Value": {
+        "Ref": "OrgDetails67A18B48",
+      },
+    },
+    "StackSetName": {
+      "Description": "Name of the StackSet deploying to member accounts",
+      "Value": "TestMainStack-StackSet",
+    },
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ConformancePack": {
+      "DependsOn": [
+        "StackSet",
+      ],
+      "Properties": {
+        "ExcludedAccounts": [
+          {
+            "Fn::GetAtt": [
+              "OrgDetails67A18B48",
+              "MasterAccountId",
+            ],
+          },
+        ],
+        "OrganizationConformancePackName": "Cost-Optimization",
+        "TemplateBody": "{"Parameters":{},"Resources":{}}",
+      },
+      "Type": "AWS::Config::OrganizationConformancePack",
+    },
+    "DocumentShareFunctionA7F759AD": {
+      "DependsOn": [
+        "DocumentShareFunctionServiceRoleDefaultPolicy6D43DC28",
+        "DocumentShareFunctionServiceRole6F91B173",
+      ],
+      "Properties": {
+        "Architectures": [
+          "arm64",
+        ],
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-us-east-1",
+          "S3Key": "60d1abf6ffd8a1993a737c6fc055c0443a4776af508fad91d8fd10942f6dce38.zip",
+        },
+        "Description": "Shares SSM documents with all AWS Organization accounts",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "DocumentShareFunctionServiceRole6F91B173",
+            "Arn",
+          ],
+        },
+        "Runtime": "python3.12",
+        "Timeout": 300,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "DocumentShareFunctionServiceRole6F91B173": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "DocumentShareFunctionServiceRoleDefaultPolicy6D43DC28": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "organizations:ListAccounts",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": "ssm:ModifyDocumentPermission",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":ssm:",
+                    {
+                      "Ref": "AWS::Region",
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId",
+                    },
+                    ":document/*",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "DocumentShareFunctionServiceRoleDefaultPolicy6D43DC28",
+        "Roles": [
+          {
+            "Ref": "DocumentShareFunctionServiceRole6F91B173",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "DocumentShareProviderframeworkonEvent20814A26": {
+      "DependsOn": [
+        "DocumentShareProviderframeworkonEventServiceRoleDefaultPolicyA0825370",
+        "DocumentShareProviderframeworkonEventServiceRoleA2EDB1C7",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-us-east-1",
+          "S3Key": "07a90cc3efdfc34da22208dcd9d211f06f5b0e01b21e778edc7c3966b1f61d57.zip",
+        },
+        "Description": "AWS CDK resource provider framework - onEvent (TestMainStack/DocumentShare/Provider)",
+        "Environment": {
+          "Variables": {
+            "USER_ON_EVENT_FUNCTION_ARN": {
+              "Fn::GetAtt": [
+                "DocumentShareFunctionA7F759AD",
+                "Arn",
+              ],
+            },
+          },
+        },
+        "Handler": "framework.onEvent",
+        "LoggingConfig": {
+          "ApplicationLogLevel": "FATAL",
+          "LogFormat": "JSON",
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "DocumentShareProviderframeworkonEventServiceRoleA2EDB1C7",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs22.x",
+        "Timeout": 900,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "DocumentShareProviderframeworkonEventServiceRoleA2EDB1C7": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "DocumentShareProviderframeworkonEventServiceRoleDefaultPolicyA0825370": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "lambda:InvokeFunction",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "DocumentShareFunctionA7F759AD",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "DocumentShareFunctionA7F759AD",
+                          "Arn",
+                        ],
+                      },
+                      ":*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": "lambda:GetFunction",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "DocumentShareFunctionA7F759AD",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "DocumentShareProviderframeworkonEventServiceRoleDefaultPolicyA0825370",
+        "Roles": [
+          {
+            "Ref": "DocumentShareProviderframeworkonEventServiceRoleA2EDB1C7",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "DocumentShareShareDocument0F88E5D2B": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "RemediationDocumentsEbsGp3RemediationA6B376FE",
+      ],
+      "Properties": {
+        "DocumentName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AWS::StackName",
+              },
+              "-EbsGp3Remediation",
+            ],
+          ],
+        },
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "DocumentShareProviderframeworkonEvent20814A26",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::CloudFormation::CustomResource",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "OrgDetails67A18B48": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "OrgDetailsProviderframeworkonEvent041E752D",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::CloudFormation::CustomResource",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "OrgDetailsFunction7E31F8B0": {
+      "DependsOn": [
+        "OrgDetailsFunctionServiceRoleDefaultPolicyE8F9FBAD",
+        "OrgDetailsFunctionServiceRoleACE6F4F0",
+      ],
+      "Properties": {
+        "Architectures": [
+          "arm64",
+        ],
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-us-east-1",
+          "S3Key": "9d67c1529d033d98f13d2f5f60e847b9d808a7728bb46727945746cfbb0e2840.zip",
+        },
+        "Description": "Retrieves AWS Organization root ID and management account ID",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "OrgDetailsFunctionServiceRoleACE6F4F0",
+            "Arn",
+          ],
+        },
+        "Runtime": "python3.12",
+        "Timeout": 30,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "OrgDetailsFunctionServiceRoleACE6F4F0": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "OrgDetailsFunctionServiceRoleDefaultPolicyE8F9FBAD": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "organizations:ListRoots",
+                "organizations:DescribeOrganization",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "OrgDetailsFunctionServiceRoleDefaultPolicyE8F9FBAD",
+        "Roles": [
+          {
+            "Ref": "OrgDetailsFunctionServiceRoleACE6F4F0",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "OrgDetailsProviderframeworkonEvent041E752D": {
+      "DependsOn": [
+        "OrgDetailsProviderframeworkonEventServiceRoleDefaultPolicy07ADBCD5",
+        "OrgDetailsProviderframeworkonEventServiceRoleCE615371",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-us-east-1",
+          "S3Key": "07a90cc3efdfc34da22208dcd9d211f06f5b0e01b21e778edc7c3966b1f61d57.zip",
+        },
+        "Description": "AWS CDK resource provider framework - onEvent (TestMainStack/OrgDetails/Provider)",
+        "Environment": {
+          "Variables": {
+            "USER_ON_EVENT_FUNCTION_ARN": {
+              "Fn::GetAtt": [
+                "OrgDetailsFunction7E31F8B0",
+                "Arn",
+              ],
+            },
+          },
+        },
+        "Handler": "framework.onEvent",
+        "LoggingConfig": {
+          "ApplicationLogLevel": "FATAL",
+          "LogFormat": "JSON",
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "OrgDetailsProviderframeworkonEventServiceRoleCE615371",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs22.x",
+        "Timeout": 900,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "OrgDetailsProviderframeworkonEventServiceRoleCE615371": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "OrgDetailsProviderframeworkonEventServiceRoleDefaultPolicy07ADBCD5": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "lambda:InvokeFunction",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "OrgDetailsFunction7E31F8B0",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "OrgDetailsFunction7E31F8B0",
+                          "Arn",
+                        ],
+                      },
+                      ":*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": "lambda:GetFunction",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "OrgDetailsFunction7E31F8B0",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "OrgDetailsProviderframeworkonEventServiceRoleDefaultPolicy07ADBCD5",
+        "Roles": [
+          {
+            "Ref": "OrgDetailsProviderframeworkonEventServiceRoleCE615371",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "RemediationDocumentsEbsGp3RemediationA6B376FE": {
+      "Properties": {
+        "Content": {
+          "assumeRole": "arn:{{ global:AWS_PARTITION }}:iam::{{ global:ACCOUNT_ID }}:role/CostOpt-Automation-{{ global:REGION }}",
+          "description": "Remediation document to convert EBS gp2 volumes to gp3",
+          "mainSteps": [
+            {
+              "action": "aws:executeAwsApi",
+              "description": "Modifies the EBS volume type from gp2 to gp3",
+              "inputs": {
+                "Api": "ModifyVolume",
+                "Service": "ec2",
+                "VolumeId": "{{ volumeid }}",
+                "VolumeType": "gp3",
+              },
+              "name": "ModifyVolume",
+              "outputs": [
+                {
+                  "Name": "Output",
+                  "Selector": "$",
+                  "Type": "StringMap",
+                },
+              ],
+            },
+          ],
+          "outputs": [
+            "ModifyVolume.Output",
+          ],
+          "parameters": {
+            "volumeid": {
+              "description": "ID of the EBS volume to convert from gp2 to gp3",
+              "type": "String",
+            },
+          },
+          "schemaVersion": "0.3",
+        },
+        "DocumentFormat": "YAML",
+        "DocumentType": "Automation",
+        "Name": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AWS::StackName",
+              },
+              "-EbsGp3Remediation",
+            ],
+          ],
+        },
+        "Tags": [
+          {
+            "Key": "Purpose",
+            "Value": "CostOptimization",
+          },
+        ],
+      },
+      "Type": "AWS::SSM::Document",
+    },
+    "StackSet": {
+      "DependsOn": [
+        "OrgDetailsFunction7E31F8B0",
+        "OrgDetailsFunctionServiceRoleDefaultPolicyE8F9FBAD",
+        "OrgDetailsFunctionServiceRoleACE6F4F0",
+        "OrgDetailsProviderframeworkonEvent041E752D",
+        "OrgDetailsProviderframeworkonEventServiceRoleDefaultPolicy07ADBCD5",
+        "OrgDetailsProviderframeworkonEventServiceRoleCE615371",
+        "OrgDetails67A18B48",
+      ],
+      "Properties": {
+        "AutoDeployment": {
+          "Enabled": true,
+          "RetainStacksOnAccountRemoval": false,
+        },
+        "CallAs": "DELEGATED_ADMIN",
+        "Capabilities": [
+          "CAPABILITY_IAM",
+          "CAPABILITY_NAMED_IAM",
+        ],
+        "ManagedExecution": {
+          "active": true,
+        },
+        "OperationPreferences": {
+          "FailureTolerancePercentage": 100,
+          "MaxConcurrentPercentage": 100,
+          "RegionConcurrencyType": "PARALLEL",
+        },
+        "PermissionModel": "SERVICE_MANAGED",
+        "StackInstancesGroup": [
+          {
+            "DeploymentTargets": {
+              "OrganizationalUnitIds": [
+                {
+                  "Ref": "OrgDetails67A18B48",
+                },
+              ],
+            },
+            "Regions": [
+              "us-east-1",
+            ],
+          },
+        ],
+        "StackSetName": "TestMainStack-StackSet",
+        "TemplateBody": "{"Resources":{"AutomationRoleC58D7324":{"Type":"AWS::IAM::Role","Properties":{"AssumeRolePolicyDocument":{"Statement":[{"Action":"sts:AssumeRole","Effect":"Allow","Principal":{"Service":"ssm.amazonaws.com"}}],"Version":"2012-10-17"},"Description":"Role for SSM Automation to remediate cost optimization issues","Policies":[{"PolicyDocument":{"Statement":[{"Action":"ec2:ModifyVolume","Effect":"Allow","Resource":"*"}],"Version":"2012-10-17"},"PolicyName":"RemediationPolicy"}],"RoleName":{"Fn::Join":["",["CostOpt-Automation-",{"Ref":"AWS::Region"}]]}}},"CustomConfigFunctionRole80E9182A":{"Type":"AWS::IAM::Role","Properties":{"AssumeRolePolicyDocument":{"Statement":[{"Action":"sts:AssumeRole","Effect":"Allow","Principal":{"Service":"lambda.amazonaws.com"}}],"Version":"2012-10-17"},"ManagedPolicyArns":[{"Fn::Join":["",["arn:",{"Ref":"AWS::Partition"},":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"]]},{"Fn::Join":["",["arn:",{"Ref":"AWS::Partition"},":iam::aws:policy/service-role/AWSConfigRulesExecutionRole"]]}],"Policies":[{"PolicyDocument":{"Statement":[{"Action":"s3:GetLifecycleConfiguration","Effect":"Allow","Resource":"*"}],"Version":"2012-10-17"},"PolicyName":"S3LifecyclePolicy"}]}},"CustomConfigFunctionDE240346":{"Type":"AWS::Lambda::Function","Properties":{"Architectures":["arm64"],"Code":{"S3Bucket":{"Fn::Sub":"cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}"},"S3Key":"1a3c174f909d4e5b49873f546b0787f3c2876998f37feb5ec7d9622f332b69a6.zip"},"Description":"Evaluates cost optimization Config rules for EBS and S3","FunctionName":"CostOptimizationConformanceConfigRuleFunction","Handler":"index.lambda_handler","Role":{"Fn::GetAtt":["CustomConfigFunctionRole80E9182A","Arn"]},"Runtime":"python3.12","Timeout":60},"DependsOn":["CustomConfigFunctionRole80E9182A"]},"CustomConfigFunctionConfigPermission95034347":{"Type":"AWS::Lambda::Permission","Properties":{"Action":"lambda:InvokeFunction","FunctionName":{"Fn::GetAtt":["CustomConfigFunctionDE240346","Arn"]},"Principal":"config.amazonaws.com"}},"CustomConfigFunctionCustomRulePermissionbM1jVaicvRO9SDCiAbsQcYrOlESEtMwrrF9ZQQRvd5QB872FC66":{"Type":"AWS::Lambda::Permission","Properties":{"Action":"lambda:InvokeFunction","FunctionName":{"Fn::GetAtt":["CustomConfigFunctionDE240346","Arn"]},"Principal":"config.amazonaws.com","SourceAccount":{"Ref":"AWS::AccountId"}}},"EbsGp3Rule7358C22A":{"Type":"AWS::Config::ConfigRule","Properties":{"ConfigRuleName":"CostOpt-Ebs-Gp3","Description":"Checks that EBS volumes use gp3 volume type instead of gp2","InputParameters":{"customFunctionPrefix":"ebs_gp3","applicableResourceType":"AWS::EC2::Volume","desiredVolumeType":"gp3"},"MaximumExecutionFrequency":"Six_Hours","Scope":{"ComplianceResourceTypes":["AWS::EC2::Volume"]},"Source":{"Owner":"CUSTOM_LAMBDA","SourceDetails":[{"EventSource":"aws.config","MessageType":"ConfigurationItemChangeNotification"},{"EventSource":"aws.config","MessageType":"OversizedConfigurationItemChangeNotification"},{"EventSource":"aws.config","MaximumExecutionFrequency":"Six_Hours","MessageType":"ScheduledNotification"}],"SourceIdentifier":{"Fn::GetAtt":["CustomConfigFunctionDE240346","Arn"]}}},"DependsOn":["CustomConfigFunctionConfigPermission95034347","CustomConfigFunctionCustomRulePermissionbM1jVaicvRO9SDCiAbsQcYrOlESEtMwrrF9ZQQRvd5QB872FC66","CustomConfigFunctionDE240346"]},"EbsUnattachedRule5949FCA3":{"Type":"AWS::Config::ConfigRule","Properties":{"ConfigRuleName":"CostOpt-Ebs-Unattached","Description":"Checks that EBS volumes are attached to EC2 instances","InputParameters":{"customFunctionPrefix":"ebs_unattached","applicableResourceType":"AWS::EC2::Volume"},"MaximumExecutionFrequency":"Six_Hours","Scope":{"ComplianceResourceTypes":["AWS::EC2::Volume"]},"Source":{"Owner":"CUSTOM_LAMBDA","SourceDetails":[{"EventSource":"aws.config","MessageType":"ConfigurationItemChangeNotification"},{"EventSource":"aws.config","MessageType":"OversizedConfigurationItemChangeNotification"},{"EventSource":"aws.config","MaximumExecutionFrequency":"Six_Hours","MessageType":"ScheduledNotification"}],"SourceIdentifier":{"Fn::GetAtt":["CustomConfigFunctionDE240346","Arn"]}}},"DependsOn":["CustomConfigFunctionConfigPermission95034347","CustomConfigFunctionCustomRulePermissionbM1jVaicvRO9SDCiAbsQcYrOlESEtMwrrF9ZQQRvd5QB872FC66","CustomConfigFunctionDE240346"]},"S3LifecycleRule40C6FFE0":{"Type":"AWS::Config::ConfigRule","Properties":{"ConfigRuleName":"CostOpt-S3-WithoutLifecycle","Description":"Checks that S3 buckets have lifecycle configuration policies","InputParameters":{"customFunctionPrefix":"s3_withoutlifecycle","applicableResourceType":"AWS::S3::Bucket"},"MaximumExecutionFrequency":"Six_Hours","Scope":{"ComplianceResourceTypes":["AWS::S3::Bucket"]},"Source":{"Owner":"CUSTOM_LAMBDA","SourceDetails":[{"EventSource":"aws.config","MessageType":"ConfigurationItemChangeNotification"},{"EventSource":"aws.config","MessageType":"OversizedConfigurationItemChangeNotification"},{"EventSource":"aws.config","MaximumExecutionFrequency":"Six_Hours","MessageType":"ScheduledNotification"}],"SourceIdentifier":{"Fn::GetAtt":["CustomConfigFunctionDE240346","Arn"]}}},"DependsOn":["CustomConfigFunctionConfigPermission95034347","CustomConfigFunctionCustomRulePermissionbM1jVaicvRO9SDCiAbsQcYrOlESEtMwrrF9ZQQRvd5QB872FC66","CustomConfigFunctionDE240346"]}},"Parameters":{"BootstrapVersion":{"Type":"AWS::SSM::Parameter::Value<String>","Default":"/cdk-bootstrap/hnb659fds/version","Description":"Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"}},"Rules":{"CheckBootstrapVersion":{"Assertions":[{"Assert":{"Fn::Not":[{"Fn::Contains":[["1","2","3","4","5"],{"Ref":"BootstrapVersion"}]}]},"AssertDescription":"CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."}]}}}",
+      },
+      "Type": "AWS::CloudFormation::StackSet",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

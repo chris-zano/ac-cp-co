@@ -1,0 +1,42 @@
+{
+  "name": "cdk-infra",
+  "version": "0.1.0",
+  "bin": {
+    "cdk-infra": "bin/cdk-infra.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:python": "pip install -r test/requirements.txt && pytest",
+    "test:python:coverage": "pip install -r test/requirements.txt && pytest --cov=lambda/config-rules-combined --cov-report=html",
+    "test:all": "npm test && npm run test:python",
+    "cdk": "cdk",
+    "synth": "npm run build && cdk synth",
+    "deploy": "npm run build && cdk deploy CostOptimizationMainStack",
+    "deploy:all": "npm run build && cdk deploy --all",
+    "diff": "npm run build && cdk diff",
+    "destroy": "cdk destroy --all",
+    "validate": "npm run build && npm run test",
+    "bootstrap": "cdk bootstrap"
+  },
+  "devDependencies": {
+    "@types/jest": "^30",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.10.1",
+    "aws-cdk": "2.1107.0",
+    "jest": "^30",
+    "ts-jest": "^29",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.160",
+    "aws-cdk-lib": "^2.239.0",
+    "constructs": "^10.5.0",
+    "dotenv": "^17.3.1",
+    "js-yaml": "^4.1.1"
+  }
+}
