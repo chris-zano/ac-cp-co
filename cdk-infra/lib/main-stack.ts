@@ -1,10 +1,14 @@
 import * as cdk from "aws-cdk-lib";
 import * as cfn from "aws-cdk-lib";
+import * as s3 from "aws-cdk-lib/aws-s3";
+import * as s3deploy from "aws-cdk-lib/aws-s3-deployment";
+import * as iam from "aws-cdk-lib/aws-iam";
 import { Construct } from "constructs";
 import { OrgDetailsConstruct } from "./constructs/org-details";
 import { RemediationDocumentsConstruct } from "./constructs/remediation-documents";
 import { DocumentShareConstruct } from "./constructs/document-share";
 import { MemberAccountStack } from "./member-stack";
+import * as path from "path";
 
 /**
  * Main Stack - Deploys to delegated admin account.
@@ -19,10 +23,44 @@ export class CostOptimizationMainStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // 1. Get organization details (root ID and management account ID)
+    // 1. Create S3 bucket to host Lambda code for StackSet deployment
+    const lambdaBucket = new s3.Bucket(this, "LambdaBucket", {
+      bucketName: `cost-opt-lambda-${this.account}-${this.region}`,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      encryption: s3.BucketEncryption.S3_MANAGED,
+    });
+
+    // Grant organization-wide read access to Lambda bucket
+    // This allows CloudFormation and Lambda service in member accounts to download code
+    lambdaBucket.addToResourcePolicy(
+      new iam.PolicyStatement({
+        effect: iam.Effect.ALLOW,
+        principals: [
+          new iam.ServicePrincipal("cloudformation.amazonaws.com"),
+          new iam.ServicePrincipal("lambda.amazonaws.com"),
+        ],
+        actions: ["s3:GetObject"],
+        resources: [`${lambdaBucket.bucketArn}/*`],
+      }),
+    );
+
+    // 2. Upload Lambda code to S3
+    new s3deploy.BucketDeployment(this, "DeployLambdaCode", {
+      sources: [
+        s3deploy.Source.asset(
+          path.join(__dirname, "../lambda/config-rules-combined"),
+        ),
+      ],
+      destinationBucket: lambdaBucket,
+      destinationKeyPrefix: "lambda/config-rules",
+    });
+
+    // 3. Get organization details (root ID and management account ID)
     const orgDetails = new OrgDetailsConstruct(this, "OrgDetails");
 
-    // 2. Create SSM Automation Documents for remediation
+    // 4. Create SSM Automation Documents for remediation
     const remediationDocs = new RemediationDocumentsConstruct(
       this,
       "RemediationDocuments",
@@ -43,12 +81,19 @@ export class CostOptimizationMainStack extends cdk.Stack {
       });
     });
 
-    // 4. Create member account stack template for StackSet
+    // 6. Create member account stack template for StackSet
     // We need to synthesize the member stack to get its CloudFormation template
     const memberStackStage = new cdk.Stage(this, "MemberStackStage");
     const memberStack = new MemberAccountStack(
       memberStackStage,
       "MemberAccountStack",
+      {
+        synthesizer: new cdk.BootstraplessSynthesizer(),
+        env: {
+          account: this.account,
+          region: this.region,
+        },
+      },
     );
 
     // Synthesize the member stack to get the template
@@ -57,7 +102,7 @@ export class CostOptimizationMainStack extends cdk.Stack {
       memberStack.stackName,
     ).template;
 
-    // 5. Create StackSet to deploy member stack to all accounts
+    // 7. Create StackSet to deploy member stack to all accounts
     const stackSet = new cfn.CfnStackSet(this, "StackSet", {
       stackSetName: `${this.stackName}-StackSet`,
       permissionModel: "SERVICE_MANAGED",
@@ -78,6 +123,16 @@ export class CostOptimizationMainStack extends cdk.Stack {
             organizationalUnitIds: [orgDetails.rootId],
           },
           regions: [this.region],
+          parameterOverrides: [
+            {
+              parameterKey: "LambdaBucket",
+              parameterValue: lambdaBucket.bucketName,
+            },
+            {
+              parameterKey: "LambdaKey",
+              parameterValue: "lambda/config-rules/index.py",
+            },
+          ],
         },
       ],
       templateBody: JSON.stringify(memberTemplate),

@@ -2,6 +2,7 @@ import * as cdk from "aws-cdk-lib";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as config from "aws-cdk-lib/aws-config";
+import * as s3 from "aws-cdk-lib/aws-s3";
 import { Construct } from "constructs";
 import * as path from "path";
 
@@ -16,6 +17,17 @@ import * as path from "path";
 export class MemberAccountStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
+
+    // CloudFormation parameters for Lambda code location
+    const lambdaBucketParam = new cdk.CfnParameter(this, "LambdaBucket", {
+      type: "String",
+      description: "S3 bucket containing Lambda function code",
+    });
+
+    const lambdaKeyParam = new cdk.CfnParameter(this, "LambdaKey", {
+      type: "String",
+      description: "S3 key for Lambda function code",
+    });
 
     // 1. Create AutomationRole for SSM remediation
     const automationRole = new iam.Role(this, "AutomationRole", {
@@ -61,6 +73,7 @@ export class MemberAccountStack extends cdk.Stack {
     });
 
     // 3. Create Lambda function with all rule evaluators
+    // Use Lambda code from S3 bucket (passed as parameters)
     const configRuleFunction = new lambda.Function(
       this,
       "CustomConfigFunction",
@@ -68,8 +81,13 @@ export class MemberAccountStack extends cdk.Stack {
         functionName: "CostOptimizationConformanceConfigRuleFunction",
         runtime: lambda.Runtime.PYTHON_3_12,
         handler: "index.lambda_handler",
-        code: lambda.Code.fromAsset(
-          path.join(__dirname, "../lambda/config-rules-combined"),
+        code: lambda.Code.fromBucket(
+          s3.Bucket.fromBucketName(
+            this,
+            "LambdaCodeBucket",
+            lambdaBucketParam.valueAsString,
+          ),
+          lambdaKeyParam.valueAsString,
         ),
         architecture: lambda.Architecture.ARM_64,
         role: lambdaRole,
