@@ -4,7 +4,6 @@ Handles Create, Update, and Delete operations from CloudFormation.
 """
 import json
 import boto3
-import cfnresponse
 
 ssm = boto3.client("ssm")
 
@@ -49,16 +48,23 @@ def unshare(context, document_name):
 def handler(event, context):
     """Custom resource handler for SSM document sharing."""
     print(json.dumps(event))
+    
+    request_type = event["RequestType"]
+    document_name = event["ResourceProperties"]["DocumentName"]
+    
     try:
-        if event["RequestType"] == "Create":
-            share(context, event["ResourceProperties"]["DocumentName"])
-        elif event["RequestType"] == "Update":
-            unshare(context, event["OldResourceProperties"]["DocumentName"])
-            share(context, event["ResourceProperties"]["DocumentName"])
-        elif event["RequestType"] == "Delete":
-            unshare(context, event["ResourceProperties"]["DocumentName"])
-        cfnresponse.send(event, context, cfnresponse.SUCCESS, None, "ShareDocument")
+        if request_type == "Create":
+            share(context, document_name)
+        elif request_type == "Update":
+            old_document_name = event["OldResourceProperties"]["DocumentName"]
+            unshare(context, old_document_name)
+            share(context, document_name)
+        elif request_type == "Delete":
+            unshare(context, document_name)
+        
+        return {
+            "PhysicalResourceId": f"ShareDocument-{document_name}"
+        }
     except Exception as e:
         print(f"Error: {str(e)}")
-        cfnresponse.send(event, context, cfnresponse.FAILED, None, "ShareDocument")
         raise

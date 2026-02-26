@@ -1,6 +1,5 @@
 import * as cdk from "aws-cdk-lib";
 import * as cfn from "aws-cdk-lib";
-import * as cfgconfig from "aws-cdk-lib/aws-config";
 import { Construct } from "constructs";
 import { OrgDetailsConstruct } from "./constructs/org-details";
 import { RemediationDocumentsConstruct } from "./constructs/remediation-documents";
@@ -12,10 +11,9 @@ import { MemberAccountStack } from "./member-stack";
  *
  * Creates:
  * - Organization details lookup
- * - SSM Automation Documents
+ * - SSM Automation Documents for remediation
  * - Document sharing to all accounts
- * - StackSet for member account deployment
- * - Organization Conformance Pack
+ * - StackSet for organization-wide Config rule deployment
  */
 export class CostOptimizationMainStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -69,9 +67,6 @@ export class CostOptimizationMainStack extends cdk.Stack {
       },
       capabilities: ["CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"],
       callAs: "DELEGATED_ADMIN",
-      managedExecution: {
-        active: true,
-      },
       operationPreferences: {
         maxConcurrentPercentage: 100,
         failureTolerancePercentage: 100,
@@ -90,25 +85,6 @@ export class CostOptimizationMainStack extends cdk.Stack {
 
     // Make StackSet depend on organization details
     stackSet.node.addDependency(orgDetails);
-
-    // 6. Create Organization Conformance Pack
-    // Note: We use an empty template because we're using custom Config rules
-    // deployed via StackSet, not conformance pack managed rules
-    const conformancePack = new cfgconfig.CfnOrganizationConformancePack(
-      this,
-      "ConformancePack",
-      {
-        organizationConformancePackName: "Cost-Optimization",
-        excludedAccounts: [orgDetails.managementAccountId],
-        templateBody: JSON.stringify({
-          Parameters: {},
-          Resources: {},
-        }),
-      },
-    );
-
-    // Make conformance pack depend on StackSet being deployed
-    conformancePack.addDependency(stackSet);
 
     // Outputs
     new cdk.CfnOutput(this, "OrganizationRootId", {
