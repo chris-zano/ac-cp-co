@@ -3,3 +3,4 @@ functions/*-pkg.py
 *-build.yaml
 *-pkg.yaml
 .venv/
+service_validation_analysis.txt

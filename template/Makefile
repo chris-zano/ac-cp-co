@@ -9,10 +9,10 @@ clean:
 	rm -f main.yaml
 
 build:
-	python3 ./build/config_function.py
-	python3 ./build/conformance_pack.py
-	python3 ./build/stackset.py
-	python3 ./build/template.py
+	python ./build/config_function.py
+	python ./build/conformance_pack.py
+	python ./build/stackset.py
+	python ./build/template.py
 
 package:
 	rain pkg stackset-build.yaml --output stackset-pkg.yaml
