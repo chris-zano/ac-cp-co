@@ -4,12 +4,13 @@ import * as iam from "aws-cdk-lib/aws-iam";
 import * as config from "aws-cdk-lib/aws-config";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import { Construct } from "constructs";
-import * as path from "path";
+import { readLambdaCode } from "./utils/lambda-code";
 
 /**
  * Member Account Stack - Deployed to all AWS Organization accounts via StackSet.
  *
  * Creates:
+ * - AWS Config Recorder and Delivery Channel
  * - AutomationRole for SSM remediation
  * - Config rule evaluation Lambda
  * - Three Config rules (EBS gp3, EBS unattached, S3 lifecycle)
@@ -18,18 +19,101 @@ export class MemberAccountStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // CloudFormation parameters for Lambda code location
-    const lambdaBucketParam = new cdk.CfnParameter(this, "LambdaBucket", {
-      type: "String",
-      description: "S3 bucket containing Lambda function code",
+    // 1. Create S3 bucket for AWS Config delivery
+    const configBucket = new s3.Bucket(this, "ConfigBucket", {
+      bucketName: `aws-config-bucket-${cdk.Aws.ACCOUNT_ID}-${cdk.Aws.REGION}`,
+      removalPolicy: cdk.RemovalPolicy.RETAIN,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      encryption: s3.BucketEncryption.S3_MANAGED,
+      enforceSSL: true,
+      bucketKeyEnabled: true,
+      lifecycleRules: [
+        {
+          enabled: true,
+          transitions: [
+            {
+              storageClass: s3.StorageClass.INFREQUENT_ACCESS,
+              transitionAfter: cdk.Duration.days(90),
+            },
+            {
+              storageClass: s3.StorageClass.GLACIER,
+              transitionAfter: cdk.Duration.days(365),
+            },
+          ],
+        },
+      ],
     });
 
-    const lambdaKeyParam = new cdk.CfnParameter(this, "LambdaKey", {
-      type: "String",
-      description: "S3 key for Lambda function code",
+    // Grant AWS Config service permission to write to bucket
+    configBucket.addToResourcePolicy(
+      new iam.PolicyStatement({
+        sid: "AWSConfigBucketPermissionsCheck",
+        effect: iam.Effect.ALLOW,
+        principals: [new iam.ServicePrincipal("config.amazonaws.com")],
+        actions: ["s3:GetBucketAcl"],
+        resources: [configBucket.bucketArn],
+      }),
+    );
+
+    configBucket.addToResourcePolicy(
+      new iam.PolicyStatement({
+        sid: "AWSConfigBucketExistenceCheck",
+        effect: iam.Effect.ALLOW,
+        principals: [new iam.ServicePrincipal("config.amazonaws.com")],
+        actions: ["s3:ListBucket"],
+        resources: [configBucket.bucketArn],
+      }),
+    );
+
+    configBucket.addToResourcePolicy(
+      new iam.PolicyStatement({
+        sid: "AWSConfigBucketPutObject",
+        effect: iam.Effect.ALLOW,
+        principals: [new iam.ServicePrincipal("config.amazonaws.com")],
+        actions: ["s3:PutObject"],
+        resources: [`${configBucket.bucketArn}/*`],
+        conditions: {
+          StringEquals: {
+            "s3:x-amz-acl": "bucket-owner-full-control",
+          },
+        },
+      }),
+    );
+
+    // 2. Create IAM role for Config Recorder
+    const configRole = new iam.Role(this, "ConfigRole", {
+      assumedBy: new iam.ServicePrincipal("config.amazonaws.com"),
+      managedPolicies: [
+        iam.ManagedPolicy.fromAwsManagedPolicyName("service-role/ConfigRole"),
+      ],
     });
 
-    // 1. Create AutomationRole for SSM remediation
+    // 3. Create Config Recorder
+    const configRecorder = new config.CfnConfigurationRecorder(
+      this,
+      "ConfigRecorder",
+      {
+        roleArn: configRole.roleArn,
+        recordingGroup: {
+          allSupported: true,
+          includeGlobalResourceTypes: true,
+        },
+      },
+    );
+
+    // 4. Create Config Delivery Channel
+    const deliveryChannel = new config.CfnDeliveryChannel(
+      this,
+      "ConfigDeliveryChannel",
+      {
+        s3BucketName: configBucket.bucketName,
+      },
+    );
+
+    // Ensure delivery channel depends on recorder
+    deliveryChannel.addDependency(configRecorder);
+
+    // 5. Create AutomationRole for SSM remediation
     const automationRole = new iam.Role(this, "AutomationRole", {
       roleName: `CostOpt-Automation-${cdk.Aws.REGION}`,
       assumedBy: new iam.ServicePrincipal("ssm.amazonaws.com"),
@@ -48,7 +132,7 @@ export class MemberAccountStack extends cdk.Stack {
       },
     });
 
-    // 2. Create Lambda execution role
+    // 6. Create Lambda execution role
     const lambdaRole = new iam.Role(this, "CustomConfigFunctionRole", {
       assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"),
       managedPolicies: [
@@ -72,8 +156,8 @@ export class MemberAccountStack extends cdk.Stack {
       },
     });
 
-    // 3. Create Lambda function with all rule evaluators
-    // Use Lambda code from S3 bucket (passed as parameters)
+    // 7. Create Lambda function with all rule evaluators
+    // Use inline Lambda code (no S3 or bootstrap required)
     const configRuleFunction = new lambda.Function(
       this,
       "CustomConfigFunction",
@@ -81,13 +165,8 @@ export class MemberAccountStack extends cdk.Stack {
         functionName: "CostOptimizationConformanceConfigRuleFunction",
         runtime: lambda.Runtime.PYTHON_3_12,
         handler: "index.lambda_handler",
-        code: lambda.Code.fromBucket(
-          s3.Bucket.fromBucketName(
-            this,
-            "LambdaCodeBucket",
-            lambdaBucketParam.valueAsString,
-          ),
-          lambdaKeyParam.valueAsString,
+        code: lambda.Code.fromInline(
+          readLambdaCode("lambda/config-rules-combined/index.py"),
         ),
         architecture: lambda.Architecture.ARM_64,
         role: lambdaRole,
@@ -102,10 +181,11 @@ export class MemberAccountStack extends cdk.Stack {
       action: "lambda:InvokeFunction",
     });
 
-    // 4. Create three Config rules
+    // 8. Create three Config rules
+    // Rules depend on Config Recorder being active
 
     // Rule 1: EBS GP3 - Check that EBS volumes use gp3 instead of gp2
-    new config.CustomRule(this, "EbsGp3Rule", {
+    const ebsGp3Rule = new config.CustomRule(this, "EbsGp3Rule", {
       configRuleName: "CostOpt-Ebs-Gp3",
       description: "Checks that EBS volumes use gp3 volume type instead of gp2",
       lambdaFunction: configRuleFunction,
@@ -119,9 +199,11 @@ export class MemberAccountStack extends cdk.Stack {
         desiredVolumeType: "gp3",
       },
     });
+    ebsGp3Rule.node.addDependency(configRecorder);
+    ebsGp3Rule.node.addDependency(deliveryChannel);
 
     // Rule 2: EBS Unattached - Check that EBS volumes are attached
-    new config.CustomRule(this, "EbsUnattachedRule", {
+    const ebsUnattachedRule = new config.CustomRule(this, "EbsUnattachedRule", {
       configRuleName: "CostOpt-Ebs-Unattached",
       description: "Checks that EBS volumes are attached to EC2 instances",
       lambdaFunction: configRuleFunction,
@@ -134,9 +216,11 @@ export class MemberAccountStack extends cdk.Stack {
         applicableResourceType: "AWS::EC2::Volume",
       },
     });
+    ebsUnattachedRule.node.addDependency(configRecorder);
+    ebsUnattachedRule.node.addDependency(deliveryChannel);
 
     // Rule 3: S3 Lifecycle - Check that S3 buckets have lifecycle policies
-    new config.CustomRule(this, "S3LifecycleRule", {
+    const s3LifecycleRule = new config.CustomRule(this, "S3LifecycleRule", {
       configRuleName: "CostOpt-S3-WithoutLifecycle",
       description:
         "Checks that S3 buckets have lifecycle configuration policies",
@@ -150,5 +234,7 @@ export class MemberAccountStack extends cdk.Stack {
         applicableResourceType: "AWS::S3::Bucket",
       },
     });
+    s3LifecycleRule.node.addDependency(configRecorder);
+    s3LifecycleRule.node.addDependency(deliveryChannel);
   }
 }

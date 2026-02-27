@@ -46,9 +46,11 @@ describe("CostOptimizationMainStack", () => {
     });
   });
 
-  test("Creates Organization Conformance Pack", () => {
-    template.hasResourceProperties("AWS::Config::OrganizationConformancePack", {
-      OrganizationConformancePackName: "Cost-Optimization",
+  test("Creates StackSet for organization-wide deployment", () => {
+    template.hasResourceProperties("AWS::CloudFormation::StackSet", {
+      StackSetName: "TestMainStack-StackSet",
+      CallAs: "DELEGATED_ADMIN",
+      PermissionModel: "SERVICE_MANAGED",
     });
   });
 

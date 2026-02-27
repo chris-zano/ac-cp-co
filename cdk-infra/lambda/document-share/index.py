@@ -62,8 +62,13 @@ def handler(event, context):
         elif request_type == "Delete":
             unshare(context, document_name)
         
+        # Use event PhysicalResourceId to maintain consistency
+        physical_id = event.get(
+            "PhysicalResourceId",
+            f"ShareDocument-{document_name}"
+        )
         return {
-            "PhysicalResourceId": f"ShareDocument-{document_name}"
+            "PhysicalResourceId": physical_id
         }
     except Exception as e:
         print(f"Error: {str(e)}")

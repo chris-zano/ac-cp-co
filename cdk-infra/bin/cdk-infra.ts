@@ -12,7 +12,13 @@ dotenv.config({ path: path.join(__dirname, "../.env") });
  * Throws an error if any required variable is missing.
  */
 function validateEnvironment(): void {
-  const required = ["CDK_DEPLOY_ACCOUNT", "CDK_DEPLOY_REGION", "AWS_PROFILE"];
+  const required = [
+    "CDK_DEPLOY_ACCOUNT",
+    "CDK_DEPLOY_REGION",
+    "AWS_PROFILE",
+    "STACKSET_TARGET_REGIONS",
+    "STACKSET_TARGET_OU",
+  ];
 
   const missing = required.filter((key) => !process.env[key]);
 
@@ -33,10 +39,23 @@ function validateEnvironment(): void {
     process.exit(1);
   }
 
+  // Validate OU ID format (r-xxxx for root or ou-xxxx-xxxxxxxx for OU)
+  const ouId = process.env.STACKSET_TARGET_OU!;
+  if (!/^(r-[a-z0-9]{4}|ou-[a-z0-9]{4,32}-[a-z0-9]{8,32})$/.test(ouId)) {
+    console.error(
+      `\nInvalid STACKSET_TARGET_OU: "${ouId}"\n   Must be either:\n   - Root ID format: r-xxxx\n   - OU ID format: ou-xxxx-xxxxxxxx\n`,
+    );
+    process.exit(1);
+  }
+
+  const regions = process.env.STACKSET_TARGET_REGIONS!.split(",");
   console.log("Environment configuration validated");
   console.log(`   Account: ${process.env.CDK_DEPLOY_ACCOUNT}`);
   console.log(`   Region:  ${process.env.CDK_DEPLOY_REGION}`);
-  console.log(`   Profile: ${process.env.AWS_PROFILE}\n`);
+  console.log(`   Profile: ${process.env.AWS_PROFILE}`);
+  console.log(`   StackSet Target Regions: ${regions.join(", ")}`);
+  console.log(`   StackSet Target OU: ${ouId}`);
+  console.log("");
 }
 
 // Validate environment before proceeding
