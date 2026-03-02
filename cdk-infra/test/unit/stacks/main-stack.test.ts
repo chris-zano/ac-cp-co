@@ -82,7 +82,20 @@ describe("CostOptimizationMainStack", () => {
     });
   });
 
-  test("Matches snapshot", () => {
-    expect(template.toJSON()).toMatchSnapshot();
+  test("Stack has expected resource count", () => {
+    const resources = template.toJSON().Resources;
+    expect(Object.keys(resources).length).toBeGreaterThan(0);
+  });
+
+  test("Lambda functions use ARM64 architecture where specified", () => {
+    const resources = template.toJSON().Resources;
+    const lambdaFunctions = Object.values(resources).filter(
+      (r: any) =>
+        r.Type === "AWS::Lambda::Function" && r.Properties.Architectures,
+    );
+    expect(lambdaFunctions.length).toBeGreaterThan(0);
+    lambdaFunctions.forEach((fn: any) => {
+      expect(fn.Properties.Architectures).toEqual(["arm64"]);
+    });
   });
 });

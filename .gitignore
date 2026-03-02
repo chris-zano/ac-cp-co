@@ -4,3 +4,6 @@ functions/*-pkg.py
 *-pkg.yaml
 .venv/
 service_validation_analysis.txt
+cdk-infra/coverage
+cdk-infra/htmlcov
+**/*.pytest_cache/
