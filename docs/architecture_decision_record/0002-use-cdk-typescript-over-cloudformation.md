@@ -1,4 +1,4 @@
-# ADR-0001: Use AWS CDK with TypeScript Instead of CloudFormation YAML
+# ADR-0002: Use AWS CDK with TypeScript Instead of CloudFormation YAML
 
 ## Status
 

@@ -1,4 +1,4 @@
-# ADR-0006: Combine Three Config Rules in Single Lambda Function
+# ADR-0007: Combine Three Config Rules in Single Lambda Function
 
 ## Status
 

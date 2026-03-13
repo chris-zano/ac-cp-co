@@ -1,4 +1,4 @@
-# ADR-0007: Implement S3 Lifecycle Policies for Config Data
+# ADR-0008: Implement S3 Lifecycle Policies for Config Data
 
 ## Status
 

@@ -1,4 +1,4 @@
-# ADR-0002: Use Inline Lambda Code Instead of S3 Bucket or Bootstrap
+# ADR-0003: Use Inline Lambda Code Instead of S3 Bucket or Bootstrap
 
 ## Status
 

@@ -1,4 +1,4 @@
-# Use Lightweight ADR for Recording Architectural Decisions
+# ADR-0001: Use Lightweight ADR for Recording Architectural Decisions
 
 ## Status
 

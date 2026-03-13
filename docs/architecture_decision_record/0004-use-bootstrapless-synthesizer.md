@@ -1,4 +1,4 @@
-# ADR-0003: Use BootstraplessSynthesizer for Member Stack Synthesis
+# ADR-0004: Use BootstraplessSynthesizer for Member Stack Synthesis
 
 ## Status
 

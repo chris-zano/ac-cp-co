@@ -1,4 +1,4 @@
-# ADR-0004: Use SERVICE_MANAGED StackSets with OU Targeting
+# ADR-0005: Use SERVICE_MANAGED StackSets with OU Targeting
 
 ## Status
 
